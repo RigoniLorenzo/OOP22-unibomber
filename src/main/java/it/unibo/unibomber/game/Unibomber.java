@@ -1,4 +1,4 @@
-package it.unibo.unibomber;
+package it.unibo.unibomber.game;
 
 import processing.core.*;
 
