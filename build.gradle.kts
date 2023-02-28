@@ -29,7 +29,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("it.unibo.unibomber.Unibomber")
+    mainClass.set("it.unibo.unibomber.game.Unibomber")
 }
 
 tasks.named<Test>("test") {
