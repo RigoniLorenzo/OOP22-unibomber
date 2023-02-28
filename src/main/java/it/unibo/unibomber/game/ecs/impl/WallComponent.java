@@ -6,23 +6,36 @@ package it.unibo.unibomber.game.ecs.impl;
 public class WallComponent extends AbstractComponent{
 
     private final boolean isDistructible;
-    private boolean isTrasparent;
+    private boolean isTransparent;
 
-    public WallComponent(boolean isDistructible, boolean isTrasparent) {
+    public WallComponent(boolean isDistructible, boolean isTransparent) {
         this.isDistructible = isDistructible;
-        this.isTrasparent = isTrasparent;
+        this.isTransparent = isTransparent;
     }
 
+    /**
+     * A method to know if the wall is distructible or not
+     * 
+     * @return true if the wall is distructible, false otherwise
+     */
     public boolean canDestroy() {
         return this.isDistructible;
     }
 
+    /**
+     * A method to know if the wall is trasparent or not
+     * 
+     * @return true if the wall is trasparent, false otherwise
+     */
     public boolean isDistructible() {
-        return this.isTrasparent;
+        return this.isTransparent;
     }
 
-    public void setTrasparent() {
-        this.isTrasparent = true;
+    /**
+     * A method to set the transparent of the wall
+     */
+    public void setTransparent() {
+        this.isTransparent = false;
     }
 
     @Override
