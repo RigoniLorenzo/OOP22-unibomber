@@ -27,6 +27,11 @@ public interface Entity {
 Pair<Float,Float> getPosition();
 
 /**
+ * @param component the component to be added
+ * @return the entity with the component added
+ */
+Entity addComponent(Component component);
+/**
  * @param position the new position of the entity
  */
 void setPosition(Pair<Float,Float> position);
@@ -40,8 +45,4 @@ Type getType();
      * @return the world in which the entity is placed
      */
     World getWorld();
-    /**
-     * @param world the world where the entity is placed
-     */
-    void setWorld(World world);
 }

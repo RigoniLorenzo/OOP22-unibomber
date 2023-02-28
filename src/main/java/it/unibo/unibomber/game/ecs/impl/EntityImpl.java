@@ -25,7 +25,7 @@ public class EntityImpl implements Entity{
     @Override
     public Set<Component> getComponents() {
         return new HashSet<>(this.components);
-        }
+    }
 
     @Override
     public <C extends Component> Optional<C> getComponent(Class<C> componentClass) {
@@ -53,5 +53,11 @@ public class EntityImpl implements Entity{
     @Override
     public World getWorld() {
         return this.world;
+    }
+
+    @Override
+    public Entity addComponent(Component component) {
+        this.components.add(component);
+        return this;
     }    
 }

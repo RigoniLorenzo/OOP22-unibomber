@@ -45,5 +45,5 @@ public interface PowerUpFactory {
     /**
      * @return an instance of a basic PowerUp
      */
-    Component makebasicPowerUp();
+    Component makeBasicPowerUp();
 }

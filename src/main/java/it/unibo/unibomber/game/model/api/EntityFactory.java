@@ -8,8 +8,7 @@ public interface EntityFactory {
      * @param coordinates the initial position 
      * @return an instance of a Bomber
      */
-    //TODO make private
-    public Entity makeBomber(Pair<Float,Float> position);
+    Entity makeBomber(Pair<Float,Float> position);
     /**
      * @param coordinates the initial position 
      * @return an instance of a Playable Bomber

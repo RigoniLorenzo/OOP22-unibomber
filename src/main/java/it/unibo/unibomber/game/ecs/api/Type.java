@@ -1,5 +1,11 @@
 package it.unibo.unibomber.game.ecs.api;
 
-public interface Type {
+public enum Type {
     
+    PLAYABLE,
+    BOT,
+    POWERUP,
+    RISING_WALL,
+    DESTRUCTIBLE_WALL,
+    INDESTRUCTIBLE_WALL
 }

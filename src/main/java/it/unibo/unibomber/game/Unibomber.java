@@ -16,12 +16,8 @@ public class Unibomber extends PApplet{
     }
 
     public void draw() {
-
+    
     }
-
-    /**
-     * 
-     */
     public static void main(String[] passedArgs) {
         String[] processingArgs = {"Unibomber"};
         final Unibomber uniBomber = new Unibomber();
