@@ -1,5 +1,6 @@
 package it.unibo.unibomber.game.ecs.impl;
 
+import it.unibo.unibomber.game.ecs.api.Component;
 import it.unibo.unibomber.game.ecs.api.Entity;
 
 /*
@@ -7,7 +8,7 @@ import it.unibo.unibomber.game.ecs.api.Entity;
  * common to all components, in particular the relationship between itself and the
  * Entity it is attatched to
  */
-public class AbstractComponent {
+public abstract class AbstractComponent implements Component{
 
     /**
      * {@inheritDoc}
