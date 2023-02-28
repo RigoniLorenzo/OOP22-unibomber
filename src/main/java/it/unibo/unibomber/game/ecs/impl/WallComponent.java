@@ -1,15 +1,15 @@
 package it.unibo.unibomber.game.ecs.impl;
 
 /**
- * This is the class for manage the Wall component
+ * This is the class for manage the wall component
  */
 public class WallComponent extends AbstractComponent{
 
-    private final boolean isDistructible;
+    private final boolean isDestructible;
     private boolean isTransparent;
 
-    public WallComponent(boolean isDistructible, boolean isTransparent) {
-        this.isDistructible = isDistructible;
+    public WallComponent(boolean isDestructible, boolean isTransparent) {
+        this.isDestructible = isDestructible;
         this.isTransparent = isTransparent;
     }
 
@@ -19,7 +19,7 @@ public class WallComponent extends AbstractComponent{
      * @return true if the wall is distructible, false otherwise
      */
     public boolean canDestroy() {
-        return this.isDistructible;
+        return this.isDestructible;
     }
 
     /**
@@ -27,7 +27,7 @@ public class WallComponent extends AbstractComponent{
      * 
      * @return true if the wall is trasparent, false otherwise
      */
-    public boolean isDistructible() {
+    public boolean isTransparent() {
         return this.isTransparent;
     }
 
@@ -39,9 +39,5 @@ public class WallComponent extends AbstractComponent{
     }
 
     @Override
-    public void update() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
-    }
-    
+    public void update() {}
 }
