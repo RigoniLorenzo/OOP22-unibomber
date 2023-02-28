@@ -54,9 +54,8 @@ public class PowerUpFactoryImpl implements PowerUpFactory {
     }
 
     @Override
-    public Component makebasicPowerUp() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'makebasicPowerUp'");
+    public PlayerBasicPowerUpComponent makebasicPowerUp() {
+        return new PlayerBasicPowerUpComponent(1, 1, 1);
     }
     
 }

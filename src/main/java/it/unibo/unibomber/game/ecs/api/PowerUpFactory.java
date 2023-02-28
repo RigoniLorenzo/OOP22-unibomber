@@ -5,45 +5,45 @@ public interface PowerUpFactory {
     /**
      * @return an instance of BombKick PowerUp
      */
-    public Component makeBombKickPowerUp();
+    Component makeBombKickPowerUp();
 
     /**
      * @return an instance of Bomb Throw PowerUp
      */
-    public Component makeBombThrowPowerUp();
+    Component makeBombThrowPowerUp();
 
     /**
      * @return an instance of Spiked Bomb PowerUp
      */
-    public Component makeSpikedBombPowerUp();
+    Component makeSpikedBombPowerUp();
 
     /**
      * @return an instance of Powerfull Bomb PowerUp
      */
-    public Component makePowerfullBombPowerUp();
+    Component makePowerfullBombPowerUp();
 
     /**
      * @return an instance of Bouncy Bomb PowerUp
      */
-    public Component makebouncyBombPowerUp();
+    Component makebouncyBombPowerUp();
 
     /**
      * @return an instance of LineBomb PowerUp
      */
-    public Component makelineBombPowerUp();
+    Component makelineBombPowerUp();
 
     /**
      * @return an instance of mineBombPowerUp PowerUp
      */
-    public Component makemineBombPowerUp();
+    Component makemineBombPowerUp();
 
     /**
      * @return an instance of shield PowerUp
      */
-    public Component makeshieldPowerUp();
+    Component makeshieldPowerUp();
 
     /**
      * @return an instance of a basic PowerUp
      */
-    public Component makebasicPowerUp();
+    Component makebasicPowerUp();
 }
