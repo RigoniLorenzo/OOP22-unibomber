@@ -8,7 +8,8 @@ public enum PowerUpType {
 
     BOMB(false),
     POWER(false),
-    SPEED(false),
+    SPEEDUP(false),
+    SPEEDDOWN(false),
     KICKBOMB(true),
     THROWBOMB(true);
 
