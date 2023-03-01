@@ -21,7 +21,7 @@ public interface World {
     /**
      * @return all keys currently pressed
      */
-    Map<Character,Boolean> getPressedKeys();
+    boolean isBeingPressed(char keyCode);
 
     /**
      * @param keyCode the actual code of the keyboard key
