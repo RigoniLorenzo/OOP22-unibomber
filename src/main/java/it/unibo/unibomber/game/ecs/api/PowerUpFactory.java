@@ -1,49 +1,52 @@
 package it.unibo.unibomber.game.ecs.api;
 
+import it.unibo.unibomber.utilities.Pair;
+
+
 public interface PowerUpFactory {
 
     /**
      * @return an instance of BombKick PowerUp
      */
-    Component makeBombKickPowerUp();
+    Entity makeBombKickPowerUp();
 
     /**
      * @return an instance of Bomb Throw PowerUp
      */
-    Component makeBombThrowPowerUp();
+    Entity makeBombThrowPowerUp();
 
     /**
      * @return an instance of Spiked Bomb PowerUp
      */
-    Component makeSpikedBombPowerUp();
+    Entity makeSpikedBombPowerUp();
 
     /**
      * @return an instance of Powerfull Bomb PowerUp
      */
-    Component makePowerfullBombPowerUp();
+    Entity makePowerfullBombPowerUp();
 
     /**
      * @return an instance of Bouncy Bomb PowerUp
      */
-    Component makebouncyBombPowerUp();
+    Entity makebouncyBombPowerUp();
 
     /**
      * @return an instance of LineBomb PowerUp
      */
-    Component makelineBombPowerUp();
+    Entity makelineBombPowerUp();
 
     /**
      * @return an instance of mineBombPowerUp PowerUp
      */
-    Component makemineBombPowerUp();
+    Entity makemineBombPowerUp();
 
     /**
      * @return an instance of shield PowerUp
      */
-    Component makeshieldPowerUp();
+    Entity makeshieldPowerUp();
 
     /**
      * @return an instance of a basic PowerUp
      */
-    Component makeBasicPowerUp();
+    Entity makeBasicPowerUp(Pair<Float, Float> pos, PowerUpType powerUpType);
 }
