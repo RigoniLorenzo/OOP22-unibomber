@@ -7,7 +7,7 @@ public class ComponentFactoryImpl implements ComponentFactory{
 
     @Override
     public Component makePowerUpHandler() {
-        return new PowerUpListComponent(1, 1, 1);
+        return new PowerUpListComponent(1, 1);
     }
     
 }
