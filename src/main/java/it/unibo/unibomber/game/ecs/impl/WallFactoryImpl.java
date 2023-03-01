@@ -12,19 +12,18 @@ public class WallFactoryImpl implements WallFactory{
 
     @Override
     public Entity createIndestructWall(Pair<Float, Float> pos) {
-        return new EntityImpl(pos, Type.INDESTRUCTIBLE_WALL)
-            .addComponent(new WallComponent(false, false));
+        return new EntityImpl(pos, Type.INDESTRUCTIBLE_WALL);
     }
 
     @Override
     public Entity createDestructWall(Pair<Float, Float> pos) {
         return new EntityImpl(pos, Type.DESTRUCTIBLE_WALL)
-            .addComponent(new WallComponent(true, false));
+            .addComponent(new DestroyComponent());
     }
 
     @Override
     public Entity createRisingWall(Pair<Float, Float> pos) {
         return new EntityImpl(pos, Type.RISING_WALL)
-            .addComponent(new WallComponent(false, true));
+            .addComponent(new RisingComponent());
     }
 }

@@ -5,16 +5,16 @@ import it.unibo.unibomber.utilities.Pair;
 public interface WallFactory {
     
     /**
-     * A method that creates a indistructible wall
+     * A method that creates a indestructible wall
      * @param pos the position where the wall will be placed
-     * @return the indistructible wall created
+     * @return the indestructible wall created
      */
     Entity createIndestructWall(Pair<Float, Float> pos);
 
     /**
-     * A method that creates a distructible wall
+     * A method that creates a destructible wall
      * @param pos the position where the wall will be placed
-     * @return the distructible wall created
+     * @return the destructible wall created
      */
     Entity createDestructWall(Pair<Float, Float> pos);
 
