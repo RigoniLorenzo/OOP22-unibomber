@@ -2,13 +2,13 @@ package it.unibo.unibomber.game.ecs.impl;
 
 import it.unibo.unibomber.game.ecs.api.PowerUpType;
 
-public class PlayerBasicPowerUpComponent extends AbstractComponent {
+public class PowerUpListComponent extends AbstractComponent {
 
     private double speed;
     private int bombNumber;
     private int bombPower;
 
-    public PlayerBasicPowerUpComponent(double speed, int bombNumber, int bombPower) {
+    public PowerUpListComponent(double speed, int bombNumber, int bombPower) {
         this.speed = speed;
         this.bombNumber = bombNumber;
         this.bombPower = bombPower;

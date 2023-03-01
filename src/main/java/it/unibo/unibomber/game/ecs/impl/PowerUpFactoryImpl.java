@@ -1,61 +1,66 @@
 package it.unibo.unibomber.game.ecs.impl;
 
-import it.unibo.unibomber.game.ecs.api.Component;
+import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.ecs.api.PowerUpFactory;
+import it.unibo.unibomber.game.ecs.api.PowerUpType;
+import it.unibo.unibomber.game.ecs.api.Type;
+import it.unibo.unibomber.utilities.Pair;
 
 public class PowerUpFactoryImpl implements PowerUpFactory {
 
     @Override
-    public Component makeBombKickPowerUp() {
+    public Entity makeBombKickPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeBombKickPowerUp'");
     }
 
     @Override
-    public Component makeBombThrowPowerUp() {
+    public Entity makeBombThrowPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeBombThrowPowerUp'");
     }
 
     @Override
-    public Component makeSpikedBombPowerUp() {
+    public Entity makeSpikedBombPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeSpikedBombPowerUp'");
     }
 
     @Override
-    public Component makePowerfullBombPowerUp() {
+    public Entity makePowerfullBombPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makePowerfullBombPowerUp'");
     }
 
     @Override
-    public Component makebouncyBombPowerUp() {
+    public Entity makebouncyBombPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makebouncyBombPowerUp'");
     }
 
     @Override
-    public Component makelineBombPowerUp() {
+    public Entity makelineBombPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makelineBombPowerUp'");
     }
 
     @Override
-    public Component makemineBombPowerUp() {
+    public Entity makemineBombPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makemineBombPowerUp'");
     }
 
     @Override
-    public Component makeshieldPowerUp() {
+    public Entity makeshieldPowerUp() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeshieldPowerUp'");
     }
 
     @Override
-    public Component makeBasicPowerUp() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'makebasicPowerUp'");
+    public Entity makeBasicPowerUp(Pair<Float, Float> pos, PowerUpType powerUpType) {
+        return new EntityImpl(pos, Type.POWERUP)
+            .addComponent(new PowerUpComponent(powerUpType))
+            .addComponent(new DestroyComponent());
     }
+
 }
