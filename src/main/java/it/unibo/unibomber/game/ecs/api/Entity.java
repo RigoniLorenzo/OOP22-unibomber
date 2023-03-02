@@ -3,7 +3,7 @@ package it.unibo.unibomber.game.ecs.api;
 import java.util.Optional;
 import java.util.Set;
 
-import it.unibo.unibomber.game.model.api.World;
+import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.utilities.Pair;
 
 public interface Entity {
@@ -42,9 +42,9 @@ public interface Entity {
     Type getType();
 
     /**
-     * @return the world in which the entity is placed
+     * @return the Game in which the entity is placed
      */
-    World getWorld();
+    Game getGame();
 
     /**
      * @return speed of entity

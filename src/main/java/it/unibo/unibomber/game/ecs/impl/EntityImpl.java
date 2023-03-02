@@ -8,14 +8,14 @@ import it.unibo.unibomber.game.ecs.api.Component;
 import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.ecs.api.PowerUpType;
 import it.unibo.unibomber.game.ecs.api.Type;
-import it.unibo.unibomber.game.model.api.World;
+import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.utilities.Pair;
 
 public class EntityImpl implements Entity{
 
     private final Type type;
     private final Set<Component> components = new HashSet<>();
-    private World world;
+    private Game Game;
     private Pair<Float,Float> position;
     private float speed = 1;
 
@@ -53,8 +53,8 @@ public class EntityImpl implements Entity{
     }
 
     @Override
-    public World getWorld() {
-        return this.world;
+    public Game getGame() {
+        return this.Game;
     }
 
     @Override

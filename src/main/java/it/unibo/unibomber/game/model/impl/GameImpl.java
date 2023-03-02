@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
-import it.unibo.unibomber.game.model.api.World;
+import it.unibo.unibomber.game.model.api.Game;
 
-public class WorldImpl implements World {
+public class GameImpl implements Game {
 
     private List<Entity> entities = new ArrayList<>();
     private Map<Character,Boolean> keysPressed = new HashMap<>();  

@@ -11,7 +11,7 @@ public class PhysicsComponent extends AbstractComponent {
     }
     @Override
     public void update() {
-        this.getEntity().getWorld();
+        this.getEntity().getGame();
         var a= this.getEntity().getPosition();
     }
     

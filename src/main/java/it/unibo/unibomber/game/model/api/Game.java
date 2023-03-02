@@ -3,16 +3,16 @@ package it.unibo.unibomber.game.model.api;
 import java.util.List;
 import it.unibo.unibomber.game.ecs.api.Entity;
 
-public interface World {
+public interface Game {
     
     /**
-     * @return the list of all entities in the current world
+     * @return the list of all entities in the current Game
      */
     List<Entity> getEntities();
 
     /**
      * @param <C> only extension of entity
-     * @param entity the entity to be added to the World
+     * @param entity the entity to be added to the Game
      */
     <C extends Entity> void addEntity(C entity);
 
