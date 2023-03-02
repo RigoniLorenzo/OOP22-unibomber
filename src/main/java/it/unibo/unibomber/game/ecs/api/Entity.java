@@ -26,15 +26,20 @@ public interface Entity {
     Pair<Float, Float> getPosition();
 
     /**
+     * @param position the new position of the entity
+     */
+    void setPosition(Pair<Float, Float> position);
+
+    /**
+     * @param position the new position to be added to entity
+     */
+    void addPosition(Pair<Float, Float> position);
+
+    /**
      * @param component the component to be added
      * @return the entity with the component added
      */
     Entity addComponent(Component component);
-
-    /**
-     * @param position the new position of the entity
-     */
-    void setPosition(Pair<Float, Float> position);
 
     /**
      * @return the type of the entity

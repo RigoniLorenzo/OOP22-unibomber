@@ -75,6 +75,12 @@ public class EntityImpl implements Entity{
             case SPEEDDOWN: if(this.speed > 1) this.speed-=0.20; break;
             default : break;
         }
-    }   
+    }
+
+    @Override
+    public void addPosition(Pair<Float, Float> position) {
+            this.position = new Pair<>(this.position.getX()+position.getX()
+                                      ,this.position.getY()+position.getY());
+        }   
 
 }
