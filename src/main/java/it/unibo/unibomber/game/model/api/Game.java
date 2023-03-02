@@ -17,9 +17,9 @@ public interface Game {
     <C extends Entity> void addEntity(C entity);
 
     /**
-     * @return all keys currently pressed
+     * @return if key is contaned into Map
      */
-    boolean isBeingPressed(int keyCode);
+    boolean isContained(int keyCode);
 
     /**
      * @param keyCode the actual code of the keyboard key

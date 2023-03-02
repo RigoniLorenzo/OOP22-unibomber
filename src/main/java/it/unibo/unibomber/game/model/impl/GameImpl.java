@@ -13,9 +13,6 @@ public class GameImpl implements Game {
     private List<Entity> entities = new ArrayList<>();
     private Map<Integer,Boolean> keysPressed = new HashMap<>();  
 
-    public GameImpl() {
-    }
-
     @Override
     public List<Entity> getEntities() {
         return this.entities;
@@ -27,7 +24,7 @@ public class GameImpl implements Game {
     }
 
     @Override
-    public boolean isBeingPressed(int keyCode) {
+    public boolean isContained(int keyCode) {
         return keysPressed.containsKey(keyCode);
     }
 

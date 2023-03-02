@@ -10,7 +10,7 @@ public class GameFactoryImpl implements GameFactory {
     @Override
     public Game makeOnePlayerGame(Map<Integer,Boolean> keyCodes) {
         Game game = new GameImpl();
-        game.putCharacterPressed(87,false);
+        game.putCharacterPressed(87, false);
         game.putCharacterPressed(65, false);
         game.putCharacterPressed(83, false);
         game.putCharacterPressed(68, false);
