@@ -35,13 +35,15 @@ public class PowerUpListComponent extends AbstractComponent {
      * @param powerUp that modify parameter of player
      */
     public void setPowerUps(PowerUpType powerUpType) {
-
-        // TODO Add controll, toggle sout
         switch(powerUpType){
-            case POWER: this.bombPower+=1; break;
-            case BOMB: this.bombNumber+=1; break;
-            default : System.out.println("Error");
+            case FIREUP: if(this.bombPower < 8) this.bombPower+=1; break;
+            case FIREDOWN: if(this.bombPower > 1) this.bombPower-=1; break;
+            case FIREFULL: this.bombPower=8; break;
+            case BOMBUP: if(this.bombNumber < 8) this.bombNumber+=1; break;
+            case BOMBDOWN: if(this.bombNumber > 1) this.bombNumber-=1; break;
+            default : break;
         }
     }
+
     
 }

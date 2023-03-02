@@ -6,8 +6,11 @@ import java.util.stream.*;
 
 public enum PowerUpType {
 
-    BOMB(false),
-    POWER(false),
+    BOMBUP(false),
+    BOMBDOWN(false),
+    FIREUP(false),
+    FIREDOWN(false),
+    FIREFULL(false),
     SPEEDUP(false),
     SPEEDDOWN(false),
     KICKBOMB(true),

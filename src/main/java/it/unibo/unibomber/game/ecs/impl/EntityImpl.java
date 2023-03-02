@@ -71,8 +71,8 @@ public class EntityImpl implements Entity{
     @Override
     public void addSpeed(PowerUpType powerUpType) {
         switch(powerUpType){
-            case SPEEDUP: if(speed < 2) speed+=0.20; break;
-            case SPEEDDOWN: if(speed > 1) speed-=0.20; break;
+            case SPEEDUP: if(this.speed < 2) this.speed+=0.20; break;
+            case SPEEDDOWN: if(this.speed > 1) this.speed-=0.20; break;
             default : break;
         }
     }   
