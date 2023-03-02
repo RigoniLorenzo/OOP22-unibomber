@@ -1,6 +1,8 @@
 package it.unibo.unibomber.game.ecs.api;
 
-public interface ComponentFactory {
+import java.util.Map;
 
-    Component makePowerUpHandler();
+public interface ComponentFactory {
+    
+    Component makePowerUpHandler(int bombNumber, int bombPower, Map<PowerUpType,Integer> powerUpList);
 }
