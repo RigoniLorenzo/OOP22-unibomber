@@ -1,8 +1,6 @@
 package it.unibo.unibomber.game.model.impl;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
-import it.unibo.unibomber.game.ecs.api.Type;
-import it.unibo.unibomber.game.ecs.impl.EntityImpl;
 import it.unibo.unibomber.game.model.api.EntityFactory;
 import it.unibo.unibomber.utilities.Pair;
 
