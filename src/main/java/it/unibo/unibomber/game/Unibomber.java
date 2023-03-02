@@ -23,19 +23,16 @@ public class Unibomber extends PApplet{
     }
 
     public void draw() {
+        //TODO put in a specific method or smth
+        game.clearKeysPressed();
     
     }
 
     public void keyPressed() {
-        if(game.isContained(keyCode)) {
-            game.putCharacterPressed(keyCode, true);
-        }
+            game.addkeyPressed(keyCode);
     }
       
     public void keyReleased() {
-        if(game.isContained(keyCode)) {
-            game.putCharacterPressed(keyCode, false);
-        }
     }
 
     public void mouseClicked() {

@@ -10,14 +10,6 @@ public class GameFactoryImpl implements GameFactory {
     @Override
     public Game makeOnePlayerGame(Map<Integer,Boolean> keyCodes) {
         Game game = new GameImpl();
-        game.putCharacterPressed(87, false);
-        game.putCharacterPressed(65, false);
-        game.putCharacterPressed(83, false);
-        game.putCharacterPressed(68, false);
-        game.putCharacterPressed(27, false);
-        game.putCharacterPressed(32, false);
-        game.putCharacterPressed(37, false);
-        game.putCharacterPressed(39, false);
         return game;
     }
 
@@ -26,4 +18,14 @@ public class GameFactoryImpl implements GameFactory {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeTwoPlayerGame'");
     }
+    //TODO put in player
+    /*
+        game.addkeyPressed(87);
+        game.addkeyPressed(65);
+        game.addkeyPressed(68);
+        game.addkeyPressed(27);
+        game.addkeyPressed(32);
+        game.addkeyPressed(37);
+        game.addkeyPressed(39);
+     */
 }
