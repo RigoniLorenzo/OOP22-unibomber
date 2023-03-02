@@ -30,10 +30,18 @@ public class FieldImpl implements Field{
         int col;
         this.field = new Pair[this.numRows][this.numCols];
         for (var entity : entities) {
-            //TODO: aggiungere controllo se entity è una bomba
-            row = Math.round(entity.getPosition().getX());
-            col = Math.round(entity.getPosition().getY());
-            this.field[row][col] = new Pair<Type,Entity>(entity.getType(), entity);
+            if(!(entity.getType() == Type.BOT) &&
+               !(entity.getType() == Type.PLAYABLE)) {
+               
+                row = Math.round(entity.getPosition().getX());
+                col = Math.round(entity.getPosition().getY());
+                if(entity.getType()==Type.BOMB){
+                //TODO: aggiungere controllo se entity è una bomba
+
+                }
+                
+                this.field[row][col] = new Pair<Type,Entity>(entity.getType(), entity);
+            }
         }
     }
     
