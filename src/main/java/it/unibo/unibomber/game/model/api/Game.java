@@ -19,13 +19,13 @@ public interface Game {
     /**
      * @return all keys currently pressed
      */
-    boolean isBeingPressed(char keyCode);
+    boolean isBeingPressed(int keyCode);
 
     /**
      * @param keyCode the actual code of the keyboard key
      * @param isPressed whether it was pressed or released
      */
-    void putCharacterPressed(char keyCode, boolean isPressed);
+    void putCharacterPressed(int keyCode, boolean isPressed);
 
     /**
      * @param entity the entity to be removed

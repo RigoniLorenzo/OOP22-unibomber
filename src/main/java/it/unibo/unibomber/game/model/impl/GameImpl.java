@@ -11,7 +11,10 @@ import it.unibo.unibomber.game.model.api.Game;
 public class GameImpl implements Game {
 
     private List<Entity> entities = new ArrayList<>();
-    private Map<Character,Boolean> keysPressed = new HashMap<>();  
+    private Map<Integer,Boolean> keysPressed = new HashMap<>();  
+
+    public GameImpl() {
+    }
 
     @Override
     public List<Entity> getEntities() {
@@ -24,12 +27,12 @@ public class GameImpl implements Game {
     }
 
     @Override
-    public boolean isBeingPressed(char keyCode) {
+    public boolean isBeingPressed(int keyCode) {
         return keysPressed.containsKey(keyCode);
     }
 
     @Override
-    public void putCharacterPressed(char keyCode, boolean isPressed) {
+    public void putCharacterPressed(int keyCode, boolean isPressed) {
         keysPressed.put(keyCode, isPressed);
     }
 
