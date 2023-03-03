@@ -2,6 +2,7 @@ package it.unibo.unibomber.game.model.api;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.ecs.api.PowerUpType;
+import it.unibo.unibomber.game.ecs.api.Type;
 import it.unibo.unibomber.utilities.Pair;
 
 public interface EntityFactory {
@@ -14,9 +15,10 @@ public interface EntityFactory {
     public Entity makePowerUp(Pair<Float, Float> pos, PowerUpType powerUpType);
     /**
      * @param coordinates the initial position 
+     * @param type whether it is a playable character or a bot
      * @return an instance of a Bomber
      */
-    Entity makeBomber(Pair<Float,Float> position);
+    Entity makeBomber(Pair<Float,Float> position, Type type);
     /**
      * @param coordinates the initial position 
      * @return an instance of a Playable Bomber
@@ -26,14 +28,13 @@ public interface EntityFactory {
      * @param coordinates the initial position 
      * @return an instance of a non playable Bomber
      */
-    public Entity makeBot(Pair<Float,Float> position);
-    /**
-     * @param position the initial position
+    public Entity makeBot(Pair<Float, Float> position, int AI_difficulty);
+        /**
      * @param placer the reference to the entity which placed the bomb
      *               in normal condition being the bomber
      * @return an instance of a non an instance of a non playable Bomb
      */
-    public Entity makeBomb(Pair<Float,Float> position, Entity placer);
+    public Entity makeBomb(Entity placer);
     /**
      * @param position the initial position
      * @return an instance of a non playable a Wall which can be destroyed
