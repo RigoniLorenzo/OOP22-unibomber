@@ -1,7 +1,5 @@
 package it.unibo.unibomber.game.model.impl;
 
-import java.util.Map;
-
 import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.game.model.api.GameFactory;
 
@@ -14,7 +12,7 @@ public class GameFactoryImpl implements GameFactory {
     }
 
     @Override
-    public Game makeTwoPlayerGame(char[] keyCodesPlayerOne, char[] keyCodesPlayerTwo) {
+    public Game makeTwoPlayerGame() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'makeTwoPlayerGame'");
     }
@@ -28,4 +26,6 @@ public class GameFactoryImpl implements GameFactory {
         game.addkeyPressed(37);
         game.addkeyPressed(39);
      */
+
+
 }

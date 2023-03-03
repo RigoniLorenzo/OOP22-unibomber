@@ -29,7 +29,7 @@ public class Unibomber extends PApplet{
     public void setup() {
         this.setup = true;
         GameFactory gameFactory = new GameFactoryImpl();
-        game = gameFactory.makeOnePlayerGame(null);
+        game = gameFactory.makeOnePlayerGame();
         if (this.setup) {}
     }
 
