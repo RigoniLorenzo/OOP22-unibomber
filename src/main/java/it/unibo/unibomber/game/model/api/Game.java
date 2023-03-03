@@ -25,7 +25,12 @@ public interface Game {
      * @param keyCode the actual code of the keyboard key
      * @param isPressed whether it was pressed or released
      */
-    void putCharacterPressed(int keyCode, boolean isPressed);
+    void addkeyPressed(int keyCode);
+
+    /**
+     * after the keys are read the list is cleaned
+     */
+    void clearKeysPressed();
 
     /**
      * @param entity the entity to be removed

@@ -2,9 +2,9 @@ package it.unibo.unibomber.game.ecs.api;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.*;
 
 public enum PowerUpType {
+
 
     BOMBUP(false),
     BOMBDOWN(false),
@@ -17,6 +17,7 @@ public enum PowerUpType {
     THROWBOMB(true);
 
     private boolean isComplex;
+    private static final int CHANCE_COMPLEX=25;
 
     /**
      * @param isComplex to establish if powerUp is complex or not
@@ -25,18 +26,20 @@ public enum PowerUpType {
         this.isComplex = isComplex;
     }
 
+    public boolean isComplex(){
+        return this.isComplex;
+    }
+
     /**
-     * A method that returns a random powerup that is 25% complex and 75% non-complex.
+     * A method that returns a random powerup that is CHANCE_COMPLEX% complex and (100-CHANCE_COMPLEX)% non-complex.
      * 
      * @return random powerUp 
      */
     public static PowerUpType getRandomPowerUp() {
+        //TODO test if findAny is actually pseudo-random
         Random rnd = new Random();
         return List.of(PowerUpType.values()).stream()
-                                            .filter(e -> rnd.nextInt(4) == 0 ? e.isComplex : !e.isComplex)
-                                            .collect(Collectors.collectingAndThen(
-                                                Collectors.toList(),
-                                                list -> list.get(rnd.nextInt(list.size()))
-                                            ));
+                                            .filter(e -> rnd.nextInt(100) <=CHANCE_COMPLEX ? e.isComplex : !e.isComplex)
+                                            .findAny().orElseThrow();
     }
 }

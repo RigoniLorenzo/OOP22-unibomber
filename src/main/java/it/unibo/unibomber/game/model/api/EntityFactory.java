@@ -1,9 +1,17 @@
 package it.unibo.unibomber.game.model.api;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
+import it.unibo.unibomber.game.ecs.api.PowerUpType;
 import it.unibo.unibomber.utilities.Pair;
 
 public interface EntityFactory {
+    
+    /**
+     * @param pos the position where the PowerUp will be placed
+     * @param powerUpType the Type of the PowerUp
+     * @return the PowerUp described
+     */
+    public Entity makePowerUp(Pair<Float, Float> pos, PowerUpType powerUpType);
     /**
      * @param coordinates the initial position 
      * @return an instance of a Bomber

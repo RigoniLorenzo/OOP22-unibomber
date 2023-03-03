@@ -38,15 +38,10 @@ public class Unibomber extends PApplet{
     }
 
     public void keyPressed() {
-        if(game.isContained(keyCode)) {
-            game.putCharacterPressed(keyCode, true);
-        }
+            game.addkeyPressed(keyCode);
     }
       
     public void keyReleased() {
-        if(game.isContained(keyCode)) {
-            game.putCharacterPressed(keyCode, false);
-        }
     }
 
     public void mouseClicked() {

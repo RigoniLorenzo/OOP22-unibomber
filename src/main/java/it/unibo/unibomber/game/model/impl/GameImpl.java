@@ -1,9 +1,7 @@
 package it.unibo.unibomber.game.model.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.model.api.Game;
@@ -11,7 +9,7 @@ import it.unibo.unibomber.game.model.api.Game;
 public class GameImpl implements Game {
 
     private List<Entity> entities = new ArrayList<>();
-    private Map<Integer,Boolean> keysPressed = new HashMap<>();  
+    private List<Integer> keysPressedQueue = new ArrayList<>();  
 
     @Override
     public List<Entity> getEntities() {
@@ -25,17 +23,22 @@ public class GameImpl implements Game {
 
     @Override
     public boolean isContained(int keyCode) {
-        return keysPressed.containsKey(keyCode);
+        return keysPressedQueue.contains(keyCode);
     }
 
     @Override
-    public void putCharacterPressed(int keyCode, boolean isPressed) {
-        keysPressed.put(keyCode, isPressed);
+    public void addkeyPressed(int keyCode) {
+        keysPressedQueue.add(keyCode);
     }
 
     @Override
     public void removeEntity(Entity entity) {
         entities.remove(entity);
+    }
+
+    @Override
+    public void clearKeysPressed() {
+        keysPressedQueue.clear();
     }  
 
     
