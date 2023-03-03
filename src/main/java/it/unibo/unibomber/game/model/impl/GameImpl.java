@@ -10,6 +10,7 @@ public class GameImpl implements Game {
 
     private List<Entity> entities = new ArrayList<>();
     private List<Integer> keysPressedQueue = new ArrayList<>();  
+    private final EntityFactoryImpl entityFactory=new EntityFactoryImpl();
 
     @Override
     public List<Entity> getEntities() {
@@ -41,6 +42,9 @@ public class GameImpl implements Game {
         keysPressedQueue.clear();
     }  
 
+    public EntityFactoryImpl getFactory(){
+        return entityFactory;
+    }
     
     
 }

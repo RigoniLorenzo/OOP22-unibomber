@@ -8,7 +8,7 @@ import it.unibo.unibomber.game.model.api.GameFactory;
 public class GameFactoryImpl implements GameFactory {
 
     @Override
-    public Game makeOnePlayerGame(Map<Integer,Boolean> keyCodes) {
+    public Game makeOnePlayerGame() {
         Game game = new GameImpl();
         return game;
     }
