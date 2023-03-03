@@ -12,12 +12,6 @@ public class GameFactoryImpl implements GameFactory {
         Game game = new GameImpl();
         return game;
     }
-
-    @Override
-    public Game makeTwoPlayerGame(char[] keyCodesPlayerOne, char[] keyCodesPlayerTwo) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'makeTwoPlayerGame'");
-    }
     //TODO put in player
     /*
         game.addkeyPressed(87);
@@ -28,4 +22,10 @@ public class GameFactoryImpl implements GameFactory {
         game.addkeyPressed(37);
         game.addkeyPressed(39);
      */
+
+    @Override
+    public Game makeTwoPlayerGame() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'makeTwoPlayerGame'");
+    }
 }
