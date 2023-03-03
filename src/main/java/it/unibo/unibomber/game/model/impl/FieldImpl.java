@@ -1,46 +1,46 @@
 package it.unibo.unibomber.game.model.impl;
 
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.ecs.api.Type;
 import it.unibo.unibomber.game.model.api.Field;
+import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.utilities.Pair;
 
 public class FieldImpl implements Field{
 
-    private Pair<Type, Entity>[][] field;
-    private final int numRows;
-    private final int numCols;
+    private final Map<Pair<Integer, Integer>, Pair<Type, Entity>> field = new HashMap<>();
+    private final Game game;
     
-    public FieldImpl(int numRows, int numCols) {
-        this.numRows = numRows;
-        this.numCols = numCols;
+    public FieldImpl(Game game) {
+        this.game = game;
     }
 
     @Override
-    public Pair<Type, Entity>[][] getField() {
-        final Pair<Type, Entity>[][] copyField = this.field;
-        return copyField;
+    public Map<Pair<Integer, Integer>, Pair<Type, Entity>> getField() {
+        return new HashMap<>(this.field);
     }
 
     @Override
-    public void updateField(final Set<Entity> entities) {
+    public void updateField() {
         int row;
         int col;
-        this.field = new Pair[this.numRows][this.numCols];
-        for (var entity : entities) {
+        this.field.clear();
+        for (var entity : this.game.getEntities()) {
             if(!(entity.getType() == Type.BOT) &&
                !(entity.getType() == Type.PLAYABLE)) {
-               
-                row = Math.round(entity.getPosition().getX());
-                col = Math.round(entity.getPosition().getY());
-                if(entity.getType()==Type.BOMB){
-                //TODO: aggiungere controllo se entity è una bomba
-
+                if (entity.getType() == Type.BOMB){
+                    //TODO: aggiungere getDirection() in EntityImpl per fare il controllo che vada verso sx
+                    row = (int) Math.round(entity.getPosition().getX());
+                    col = (int) Math.round(entity.getPosition().getY());
+                } else {
+                    row = Math.round(entity.getPosition().getX());
+                    col = Math.round(entity.getPosition().getY());
                 }
-                
-                this.field[row][col] = new Pair<Type,Entity>(entity.getType(), entity);
+                this.field.put(new Pair<Integer,Integer>(row, col), 
+                    new Pair<Type,Entity>(entity.getType(), entity));
             }
         }
     }

@@ -31,7 +31,6 @@ public class KeyboardInputImpl implements KeyListener{
 	
     @Override
     public void keyReleased(KeyEvent e) {
-		System.out.println(keysPressedQueue);
     }
 
     @Override

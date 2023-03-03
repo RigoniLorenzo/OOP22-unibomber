@@ -1,7 +1,5 @@
 package it.unibo.unibomber.game.model.api;
 
-import java.util.Map;
-
 public interface GameFactory {
     /**
      * @param keyCodes the key code which corresponds to the player inputs,

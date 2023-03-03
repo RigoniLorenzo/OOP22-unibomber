@@ -13,6 +13,7 @@ public class DestroyComponent extends AbstractComponent{
         if (this.isDestroyed) {
             if (this.destroyDuration == 0) {
                 this.getEntity().getGame().removeEntity(this.getEntity());
+                this.isDestroyed = false;
             } else {
                 this.destroyDuration--;
             }
