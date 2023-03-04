@@ -23,4 +23,9 @@ public class Constants {
 			public final static int UPS_SET = 200;
 		}
 	}
+
+	public static class PowerUp {
+		public static final int CHANCE_COMPLEX = 25;
+	}
+	
 }

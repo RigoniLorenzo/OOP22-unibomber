@@ -1,13 +1,12 @@
 package it.unibo.unibomber.game.ecs.impl;
 
-import java.util.Map;
-
+import java.util.List;
 import it.unibo.unibomber.game.ecs.api.PowerUpType;
 
 public class PowerUpHandlerComponent extends PowerUpListComponent {
     
 
-    public PowerUpHandlerComponent(int bombNumber, int bombPower, Map<PowerUpType, Integer> powerUpList) {
+    public PowerUpHandlerComponent(int bombNumber, int bombPower, List<PowerUpType> powerUpList) {
         super(bombNumber, bombPower, powerUpList);
     }
 

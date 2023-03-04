@@ -1,7 +1,7 @@
 package it.unibo.unibomber.game.ecs.impl;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.MissingFormatArgumentException;
 import java.util.Optional;
 
@@ -12,9 +12,9 @@ public class PowerUpListComponent extends AbstractComponent {
 
     protected int bombNumber;
     protected int bombPower;
-    protected Map<PowerUpType,Integer> powerUpList= new HashMap<>();
+    protected List<PowerUpType> powerUpList= new ArrayList<>();
 
-    public PowerUpListComponent(int bombNumber, int bombPower, Map<PowerUpType,Integer> powerUpList) {
+    public PowerUpListComponent(int bombNumber, int bombPower, List<PowerUpType> powerUpList) {
         this.bombNumber = bombNumber;
         this.bombPower = bombPower;
         this.powerUpList = powerUpList;
@@ -31,9 +31,10 @@ public class PowerUpListComponent extends AbstractComponent {
         }
     }
 
-    private Map<PowerUpType, Integer> getPowerUpList() {
-        return null;
+    public List<PowerUpType> getPowerUpList() {
+        return powerUpList;
     }
+    
     @Override
     public void update() {
 
