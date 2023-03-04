@@ -5,20 +5,32 @@ import java.awt.event.KeyListener;
 import java.awt.Graphics;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.awt.image.BufferedImage;
 
 import it.unibo.unibomber.game.controller.impl.WorldImpl;
+import it.unibo.unibomber.utilities.Constants;
+import it.unibo.unibomber.utilities.UploadRes;
 
 public class Play extends State implements KeyListener{
     
     private Deque<Integer> key_queue;
+	private BufferedImage arena;
+	private int menuWidth, menuHeight;
 
     public Play(WorldImpl world) {
 		super(world);
 		initClasses();
+		loadBackground();
 	}
 
 	private void initClasses() {
         key_queue = new LinkedList<>();
+	}
+
+	private void loadBackground() {
+		arena = UploadRes.GetSpriteAtlas(UploadRes.ARENA_1);
+		menuWidth = (int) (Constants.UI.Game.G_WIDTH);
+		menuHeight = (int) (Constants.UI.Game.G_HEIGHT);
 	}
 
 	public void update() {
@@ -30,7 +42,7 @@ public class Play extends State implements KeyListener{
 	}
 
     public void draw(Graphics g) {
-
+		g.drawImage(arena, 0, 0, menuWidth, menuHeight, null);
 	}
 
 	@Override

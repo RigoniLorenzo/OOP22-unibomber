@@ -16,9 +16,9 @@ import java.awt.event.MouseListener;
 
 public class Menu extends State implements MouseListener, KeyListener{
 
-    private MenuButton[] buttons = new MenuButton[3];
+    private MenuButton[] buttons = new MenuButton[2];
 	private BufferedImage backgroundImage;
-	private int menuX, menuY, menuWidth, menuHeight;
+	private int menuWidth, menuHeight;
 	public Menu(WorldImpl world) {
 		super(world);
 		loadButtons();
@@ -27,17 +27,14 @@ public class Menu extends State implements MouseListener, KeyListener{
 
     private void loadBackground() {
 		backgroundImage = UploadRes.GetSpriteAtlas(UploadRes.MENU_BACKGROUND);
-		menuWidth = (int) (backgroundImage.getWidth() * Constants.UI.Game.SCALE);
-		menuHeight = (int) (backgroundImage.getHeight() * Constants.UI.Game.SCALE);
-		menuX = Constants.UI.Game.G_WIDTH / 2 - menuWidth / 2;
-		menuY = (int) (45 * Constants.UI.Game.SCALE);
-
+		menuWidth = (int) (Constants.UI.Game.G_WIDTH);
+		menuHeight = (int) (Constants.UI.Game.G_HEIGHT);
 	}
 
 	private void loadButtons() {
 		buttons[0] = new MenuButton(Constants.UI.Game.G_WIDTH / 2, (int) (150 * Constants.UI.Game.SCALE), 0, Gamestate.PLAY);
-		buttons[1] = new MenuButton(Constants.UI.Game.G_WIDTH / 2, (int) (220 * Constants.UI.Game.SCALE), 1, Gamestate.OPTIONS);
-		buttons[2] = new MenuButton(Constants.UI.Game.G_WIDTH / 2, (int) (290 * Constants.UI.Game.SCALE), 2, Gamestate.QUIT);
+		buttons[1] = new MenuButton(Constants.UI.Game.G_WIDTH / 2, (int) (190 * Constants.UI.Game.SCALE), 1, Gamestate.QUIT);
+
 	}
 
 	public void update() {
@@ -47,7 +44,7 @@ public class Menu extends State implements MouseListener, KeyListener{
 
 	public void draw(Graphics g) {
 
-		g.drawImage(backgroundImage, menuX, menuY, menuWidth, menuHeight, null);
+		g.drawImage(backgroundImage, 0, 0, menuWidth, menuHeight, null);
 
 		for (MenuButton mb : buttons)
 			mb.draw(g);
