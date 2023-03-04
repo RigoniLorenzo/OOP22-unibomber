@@ -32,8 +32,9 @@ public class PowerUpListComponent extends AbstractComponent {
     }
 
     private Map<PowerUpType, Integer> getPowerUpList() {
-        return null;
+        return powerUpList;
     }
+    
     @Override
     public void update() {
 
