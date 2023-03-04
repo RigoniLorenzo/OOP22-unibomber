@@ -2,6 +2,7 @@ package it.unibo.unibomber.game.model.api;
 
 import java.util.List;
 import it.unibo.unibomber.game.ecs.api.Entity;
+import it.unibo.unibomber.utilities.Pair;
 
 public interface Game {
     
@@ -37,5 +38,18 @@ public interface Game {
      */
     void removeEntity(Entity entity);
 
+    /**
+     * @return the entity factory associated to the game
+     */
+    EntityFactory getFactory();
 
+    /**
+     * @return the dimensions of the game
+     */
+    Pair<Integer,Integer> getDimensions();
+
+    /**
+     * @return the Field construct relative to the current game
+     */
+    Field getGameField();
 }

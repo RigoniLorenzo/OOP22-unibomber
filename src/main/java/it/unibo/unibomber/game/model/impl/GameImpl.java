@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unibo.unibomber.game.ecs.api.Entity;
+import it.unibo.unibomber.game.model.api.Field;
 import it.unibo.unibomber.game.model.api.Game;
+import it.unibo.unibomber.utilities.Pair;
 
 public class GameImpl implements Game {
 
     private List<Entity> entities = new ArrayList<>();
     private List<Integer> keysPressedQueue = new ArrayList<>();  
+    private Field gameField = new FieldImpl(this);
     private final EntityFactoryImpl entityFactory=new EntityFactoryImpl();
+    private int columns;
+    private int rows;
 
     @Override
     public List<Entity> getEntities() {
@@ -42,8 +47,19 @@ public class GameImpl implements Game {
         keysPressedQueue.clear();
     }  
 
+    @Override
     public EntityFactoryImpl getFactory(){
         return entityFactory;
+    }
+
+    @Override
+    public Pair<Integer,Integer> getDimensions(){
+        return new Pair<Integer,Integer>(rows, columns);
+    }
+
+    @Override
+    public Field getGameField() {
+        return gameField;
     }
     
     
