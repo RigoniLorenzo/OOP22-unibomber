@@ -2,40 +2,49 @@ package it.unibo.unibomber.inputs.impl;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
-public class MouseInputsImpl implements MouseListener, MouseMotionListener{
+import it.unibo.unibomber.game.controller.impl.WorldPanel;
+import it.unibo.unibomber.game.view.gamestates.api.Gamestate;
 
-    public MouseInputsImpl() {
-	}
-	
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
+public class MouseInputsImpl implements MouseListener{
 
-	}
+	private WorldPanel worldPanel;
 
-	@Override
-	public void mouseMoved(MouseEvent e) {
-
+    public MouseInputsImpl(WorldPanel worldPanel) {
+		this.worldPanel = worldPanel;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("Mouse clicked!");
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		switch (Gamestate.state) {
+			case MENU:
+				worldPanel.getWorld().getMenu().mousePressed(e);
+				break;
+			case PLAY:
+				break;
+			default:
+				break;
+	
+			}	
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		switch (Gamestate.state) {
+			case MENU:
+				worldPanel.getWorld().getMenu().mouseReleased(e);
+				break;
+			case PLAY:
+				break;
+			default:
+				break;
+	
+			}
 	}
 
 	@Override
