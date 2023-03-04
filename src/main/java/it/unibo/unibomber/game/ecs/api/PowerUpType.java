@@ -3,8 +3,9 @@ package it.unibo.unibomber.game.ecs.api;
 import java.util.List;
 import java.util.Random;
 
-public enum PowerUpType {
+import it.unibo.unibomber.utilities.Constants;
 
+public enum PowerUpType {
 
     BOMBUP(false),
     BOMBDOWN(false),
@@ -17,7 +18,6 @@ public enum PowerUpType {
     THROWBOMB(true);
 
     private boolean isComplex;
-    private static final int CHANCE_COMPLEX=25;
 
     /**
      * @param isComplex to establish if powerUp is complex or not
@@ -39,7 +39,7 @@ public enum PowerUpType {
         //TODO test if findAny is actually pseudo-random
         Random rnd = new Random();
         return List.of(PowerUpType.values()).stream()
-                                            .filter(e -> rnd.nextInt(100) <=CHANCE_COMPLEX ? e.isComplex : !e.isComplex)
+                                            .filter(e -> rnd.nextInt(100) <= Constants.PowerUp.CHANCE_COMPLEX ? e.isComplex : !e.isComplex)
                                             .findAny().orElseThrow();
     }
 }

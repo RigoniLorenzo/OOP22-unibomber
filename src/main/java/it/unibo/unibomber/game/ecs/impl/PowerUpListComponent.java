@@ -34,6 +34,7 @@ public class PowerUpListComponent extends AbstractComponent {
     public List<PowerUpType> getPowerUpList() {
         return powerUpList;
     }
+    
     @Override
     public void update() {
 

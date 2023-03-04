@@ -9,4 +9,9 @@ public class Constants {
 			public static final int B_HEIGHT = (int) (B_HEIGHT_DEFAULT * 2f);
 		}
 	}
+
+	public static class PowerUp {
+		public static final int CHANCE_COMPLEX = 25;
+	}
+	
 }
