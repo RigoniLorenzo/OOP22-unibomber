@@ -9,7 +9,7 @@ import it.unibo.unibomber.game.ecs.impl.DestroyComponent;
 import it.unibo.unibomber.game.ecs.impl.EntityImpl;
 import it.unibo.unibomber.game.ecs.impl.ExplodeComponent;
 import it.unibo.unibomber.game.ecs.impl.InputComponent;
-import it.unibo.unibomber.game.ecs.impl.PhysicsComponent;
+import it.unibo.unibomber.game.ecs.impl.MovementComponent;
 import it.unibo.unibomber.game.ecs.impl.BombPlaceComponent;
 import it.unibo.unibomber.game.ecs.impl.PowerUpComponent;
 import it.unibo.unibomber.game.ecs.impl.PowerUpListComponent;
@@ -30,7 +30,7 @@ public class EntityFactoryImpl implements EntityFactory{
     @Override
     public Entity makeBomber(Pair<Float, Float> position, Type type) {
         return new EntityImpl(position,type)
-            .addComponent(new PhysicsComponent())
+            .addComponent(new MovementComponent())
             .addComponent(new CollisionComponent(false))
             .addComponent(new BombPlaceComponent())
             .addComponent(new DestroyComponent());
@@ -52,7 +52,7 @@ public class EntityFactoryImpl implements EntityFactory{
     @Override
     public Entity makeBomb(Entity placer) {
         return new EntityImpl(placer.getPosition(), Type.BOMB)
-                   .addComponent(new PhysicsComponent())
+                   .addComponent(new MovementComponent())
                    .addComponent(new CollisionComponent(true))
                    .addComponent(new ExplodeComponent())
                    .addComponent(new PowerUpListComponent(placer))
