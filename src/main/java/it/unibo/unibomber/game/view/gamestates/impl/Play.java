@@ -10,7 +10,7 @@ import it.unibo.unibomber.game.controller.impl.WorldImpl;
 
 public class Play extends State implements KeyListener{
     
-    private Deque<Integer> key_queue = new LinkedList();
+    private Deque<Integer> key_queue;
 
     public Play(WorldImpl world) {
 		super(world);
@@ -18,7 +18,7 @@ public class Play extends State implements KeyListener{
 	}
 
 	private void initClasses() {
-
+        key_queue = new LinkedList<>();
 	}
 
 	public void update() {

@@ -2,7 +2,6 @@ package it.unibo.unibomber.game.controller.impl;
 
 import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.util.Optional;
 import java.awt.Dimension;
 import it.unibo.unibomber.inputs.impl.MouseInputsImpl;
 import it.unibo.unibomber.inputs.impl.KeyboardInputsImpl;

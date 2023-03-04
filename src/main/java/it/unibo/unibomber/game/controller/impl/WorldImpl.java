@@ -10,7 +10,6 @@ import it.unibo.unibomber.utilities.Constants;
 
 public class WorldImpl implements World,Runnable{
     
-	private WorldWindow unibomberWindow;
 	private WorldPanel unibomberPanel;
 	private Menu menu;
 	private Play play;
@@ -19,7 +18,7 @@ public class WorldImpl implements World,Runnable{
     public WorldImpl(){
 		initClasses();
         unibomberPanel = new WorldPanel(this);
-		unibomberWindow = new WorldWindow(unibomberPanel);
+		new WorldWindow(unibomberPanel);
 		unibomberPanel.requestFocus();
 		startGameLoop();
     }

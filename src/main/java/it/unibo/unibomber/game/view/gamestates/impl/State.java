@@ -1,7 +1,6 @@
 package it.unibo.unibomber.game.view.gamestates.impl;
 import java.awt.event.MouseEvent;
 
-import it.unibo.unibomber.game.Unibomber;
 import it.unibo.unibomber.game.controller.impl.WorldImpl;
 
 public class State {
