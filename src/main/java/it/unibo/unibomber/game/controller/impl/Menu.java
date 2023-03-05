@@ -1,7 +1,8 @@
-package it.unibo.unibomber.game.view.gamestates.impl;
+package it.unibo.unibomber.game.controller.impl;
 
-import it.unibo.unibomber.game.controller.impl.WorldImpl;
+import it.unibo.unibomber.game.controller.api.GameLoop;
 import it.unibo.unibomber.game.view.gamestates.api.Gamestate;
+import it.unibo.unibomber.game.view.gamestates.impl.MenuButtonImpl;
 import it.unibo.unibomber.utilities.Constants;
 import it.unibo.unibomber.utilities.UploadRes;
 
@@ -14,9 +15,9 @@ import java.awt.event.MouseListener;
 
 
 
-public class Menu extends State implements MouseListener, KeyListener{
+public class Menu extends StateImpl implements MouseListener, KeyListener, GameLoop{
 
-    private MenuButton[] buttons = new MenuButton[2];
+    private MenuButtonImpl[] buttons = new MenuButtonImpl[2];
 	private BufferedImage backgroundImage;
 	private int menuWidth, menuHeight;
 	public Menu(WorldImpl world) {
@@ -32,21 +33,23 @@ public class Menu extends State implements MouseListener, KeyListener{
 	}
 
 	private void loadButtons() {
-		buttons[0] = new MenuButton(Constants.UI.Game.G_WIDTH / 2, (int) (150 * Constants.UI.Game.SCALE), 0, Gamestate.PLAY);
-		buttons[1] = new MenuButton(Constants.UI.Game.G_WIDTH / 2, (int) (190 * Constants.UI.Game.SCALE), 1, Gamestate.QUIT);
+		buttons[0] = new MenuButtonImpl(Constants.UI.Game.G_WIDTH / 2, (int) (150 * Constants.UI.Game.SCALE), 0, Gamestate.PLAY);
+		buttons[1] = new MenuButtonImpl(Constants.UI.Game.G_WIDTH / 2, (int) (190 * Constants.UI.Game.SCALE), 1, Gamestate.QUIT);
 
 	}
 
+	@Override
 	public void update() {
-		for (MenuButton mb : buttons)
+		for (MenuButtonImpl mb : buttons)
 			mb.update();
 	}
 
+	@Override
 	public void draw(Graphics g) {
 
 		g.drawImage(backgroundImage, 0, 0, menuWidth, menuHeight, null);
 
-		for (MenuButton mb : buttons)
+		for (MenuButtonImpl mb : buttons)
 			mb.draw(g);
 	}
 
@@ -64,7 +67,7 @@ public class Menu extends State implements MouseListener, KeyListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        for (MenuButton mb : buttons) {
+        for (MenuButtonImpl mb : buttons) {
 			if (isMouseIn(e, mb)) {
 				mb.setMousePressed(true);
 			}
@@ -73,7 +76,7 @@ public class Menu extends State implements MouseListener, KeyListener{
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        for (MenuButton mb : buttons) {
+        for (MenuButtonImpl mb : buttons) {
 			if (isMouseIn(e, mb)) {
 				if (mb.isMousePressed())
 					mb.applyGamestate();
@@ -84,18 +87,18 @@ public class Menu extends State implements MouseListener, KeyListener{
     }
 
     private void resetButtons() {
-		for (MenuButton mb : buttons) {
+		for (MenuButtonImpl mb : buttons) {
 			mb.reset();
         }
 
 	}
 
     public void mouseMoved(MouseEvent e) {
-		for (MenuButton mb : buttons) {
+		for (MenuButtonImpl mb : buttons) {
 			mb.setMouseOver(false);
         }
 
-		for (MenuButton mb : buttons) {
+		for (MenuButtonImpl mb : buttons) {
 			if (isMouseIn(e, mb)) {
 				mb.setMouseOver(true);
 				break;

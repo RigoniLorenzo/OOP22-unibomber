@@ -29,7 +29,7 @@ public class WorldPanel extends JPanel {
 
     public void paintComponent(Graphics g){
       super.paintComponent(g);   
-      world.render(g);
+      world.draw(g);
     }
     /**
      * @return world
