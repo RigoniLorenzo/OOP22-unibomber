@@ -14,6 +14,7 @@ public class PowerUpListComponent extends AbstractComponent {
     protected int bombPower;
     protected List<PowerUpType> powerUpList= new ArrayList<>();
 
+    
     public PowerUpListComponent(int bombNumber, int bombPower, List<PowerUpType> powerUpList) {
         this.bombNumber = bombNumber;
         this.bombPower = bombPower;
