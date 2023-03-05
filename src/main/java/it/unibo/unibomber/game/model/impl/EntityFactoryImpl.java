@@ -18,8 +18,6 @@ import it.unibo.unibomber.utilities.Pair;
 
 public class EntityFactoryImpl implements EntityFactory{
 
-    //TODO everything
-
     @Override
     public Entity makePowerUp(Pair<Float, Float> pos, PowerUpType powerUpType) {
         return new EntityImpl(pos, Type.POWERUP)
@@ -62,7 +60,6 @@ public class EntityFactoryImpl implements EntityFactory{
     @Override
     public Entity makeDestructibleWall(Pair<Float, Float> position) {
         return new EntityImpl(position, Type.DESTRUCTIBLE_WALL)
-                   .addComponent(new ExplodeComponent())
                    .addComponent(new DestroyComponent());
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>OOP22-unibomber</name>
+	<name>unibomber</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1677926381951</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
