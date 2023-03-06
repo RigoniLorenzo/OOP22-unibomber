@@ -32,7 +32,7 @@ import static it.unibo.unibomber.utilities.Constants.Player.*;
 public class Play extends StateImpl implements KeyListener,GameLoop{
     BufferedImage sprite;
     private Deque<Integer> key_queue;
-	private BufferedImage arena_background;
+	private BufferedImage grass;
 	private BufferedImage power_up;
 	private BufferedImage indestructible_wall;
 	private int arenaWidth, arenaHeight;
@@ -97,9 +97,7 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 	}
 
 	private void loadBackground() {
-		arena_background = UploadRes.GetSpriteAtlas(UploadRes.ARENA_1);
-		arenaWidth = (int) (Constants.UI.Game.G_WIDTH);
-		arenaHeight = (int) (Constants.UI.Game.G_HEIGHT);
+		grass = UploadRes.GetSpriteAtlas(UploadRes.GRASS);
 	}
 
 	@Override
@@ -122,18 +120,19 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 	}
 	@Override
     public void draw(Graphics g) {
-		g.drawImage(arena_background, 0, 0, arenaWidth, arenaHeight, null);
 		g.drawImage(power_up, 0, 0, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), null);
-
-		for (int index = 0; index < 9; index++) {
+		for (int index = 0; index < 19; index++) {
 			List<String> singleLine = Arrays.asList(map.get(index).split(" "));
 			for (int j = 0; j < singleLine.size(); j++) {
 				switch(Integer.parseInt(singleLine.get(j))){
 					case 0:
 						g.drawImage(animations[playerAction][animationIndex], 50,50, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE + Constants.UI.Game.TILES_DEFAULT), null);
 					break;
+					case 3:
+						g.drawImage(grass, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*j, (int)((Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*index), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), null);
+					break;
 					case 6:
-						g.drawImage(indestructible_wall, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*j, (int)((Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*index-10), (int)(16 * Constants.UI.Game.SCALE), (int)(16 * Constants.UI.Game.SCALE+8), null);
+						g.drawImage(indestructible_wall, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*j, (int)((Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*index), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), null);
 					break;
 				}
 			}
