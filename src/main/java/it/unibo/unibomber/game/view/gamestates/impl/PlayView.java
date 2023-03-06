@@ -1,8 +1,6 @@
 package it.unibo.unibomber.game.view.gamestates.impl;
 
 import java.awt.Graphics;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.awt.image.BufferedImage;
 
@@ -57,8 +55,8 @@ public class PlayView  implements GameLoop{
         for(int i = 0; i<controller.getEntities().size();i++) {
             if(controller.getEntities().get(i).getType()!=Type.PLAYABLE) {
                 g.drawImage(UploadRes.GetSpriteAtlas(spritesPath.get(controller.getEntities().get(i).getType())),
-                Math.round(controller.getEntities().get(i).getPosition().getX()* Constants.UI.Game.TILES_DEFAULT),
-                Math.round(controller.getEntities().get(i).getPosition().getY()* Constants.UI.Game.TILES_DEFAULT),
+                Math.round(controller.getEntities().get(i).getPosition().getX() * Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE),
+                Math.round(controller.getEntities().get(i).getPosition().getY() * Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE),
                 (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), 
                 (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), 
                 null);

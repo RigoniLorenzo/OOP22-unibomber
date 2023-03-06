@@ -11,7 +11,6 @@ public class InputComponent extends AbstractComponent{
 
      @Override
      public void update() {
-          var a=this.getEntity().getGame().getWorld().getPlay().getKeys();
           Optional<Integer> moveKey = this.getEntity().getGame().getWorld().getPlay().getKeys().stream()
                          .filter(e->e ==(int) KeyEvent.VK_W || e == (int)KeyEvent.VK_A || e == (int)KeyEvent.VK_S || e == (int)KeyEvent.VK_D)
                          .findFirst();

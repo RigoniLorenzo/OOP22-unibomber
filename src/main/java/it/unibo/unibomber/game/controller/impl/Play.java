@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,8 +17,10 @@ import java.io.IOException;
 import it.unibo.unibomber.game.controller.api.GameLoop;
 import it.unibo.unibomber.game.ecs.api.Component;
 import it.unibo.unibomber.game.ecs.api.Entity;
+import it.unibo.unibomber.game.model.api.Field;
 import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.game.model.impl.EntityFactoryImpl;
+import it.unibo.unibomber.game.model.impl.FieldImpl;
 import it.unibo.unibomber.game.model.impl.GameImpl;
 import it.unibo.unibomber.game.view.gamestates.impl.PlayView;
 import it.unibo.unibomber.utilities.Pair;
@@ -30,12 +33,14 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 	private Game game;
 	private List<String> map = new ArrayList<String>();
 	private PlayView view;
+	Field field;
 
     public Play(WorldImpl world) {
 		super(world);
 		new SpritesMap();
 		game = new GameImpl(world);
 		view= new PlayView(this);
+		field= new FieldImpl(game);
 		initClasses();
 		//TODO load map at settings not in constructor
 		loadMap();
@@ -62,7 +67,19 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}    
+		}
+		
+		for (int index = 0; index < 19; index++) {
+			List<String> singleLine = Arrays.asList(map.get(index).split(" "));
+			for (int j = 0; j < singleLine.size(); j++) {
+				switch(Integer.parseInt(singleLine.get(j))){
+					case 6:
+						game.addEntity(new EntityFactoryImpl(game).makeIndestructibleWall(new Pair<Float,Float>((float)j, (float)index)));
+					break;
+				}
+			}
+        }
+		field.updateField();    
 	}
 
 	@Override
@@ -72,6 +89,7 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 				c.update();
 			}
 		}
+		field.updateField();
 		view.update();
 		key_queue.clear();
 	}
