@@ -1,6 +1,5 @@
 package it.unibo.unibomber.game.model.impl;
 
-import it.unibo.unibomber.game.controller.api.World;
 import it.unibo.unibomber.game.controller.impl.WorldImpl;
 import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.game.model.api.GameFactory;

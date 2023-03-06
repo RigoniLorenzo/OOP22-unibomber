@@ -9,6 +9,7 @@ import it.unibo.unibomber.game.view.gamestates.api.Gamestate;
 import it.unibo.unibomber.game.view.gamestates.api.MenuButton;
 import it.unibo.unibomber.utilities.UploadRes;
 import static it.unibo.unibomber.utilities.Constants.UI.Buttons.*;
+import static it.unibo.unibomber.utilities.Constants.UI.SpritesMap.*;
 
 public class MenuButtonImpl implements MenuButton, GameLoop{
     private int x, Y, rowIndex, index;
@@ -29,7 +30,7 @@ public class MenuButtonImpl implements MenuButton, GameLoop{
 
 	private void loadbuffer_images() {
 		buffer_images = new BufferedImage[3];
-		BufferedImage temp = UploadRes.GetSpriteAtlas(UploadRes.MENU_BUTTONS);
+		BufferedImage temp = UploadRes.GetSpriteAtlas(MENU_BUTTONS);
 		for (int i = 0; i < buffer_images.length; i++)
 			buffer_images[i] = temp.getSubimage(i * WIDTH_DEFAULT, rowIndex * HEIGHT_DEFAULT, WIDTH_DEFAULT, HEIGHT_DEFAULT);
 	}

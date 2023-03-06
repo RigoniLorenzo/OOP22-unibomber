@@ -5,7 +5,7 @@ import it.unibo.unibomber.game.view.gamestates.api.Gamestate;
 import it.unibo.unibomber.game.view.gamestates.impl.MenuButtonImpl;
 import it.unibo.unibomber.utilities.Constants;
 import it.unibo.unibomber.utilities.UploadRes;
-
+import static it.unibo.unibomber.utilities.Constants.UI.SpritesMap.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -27,7 +27,7 @@ public class Menu extends StateImpl implements MouseListener, KeyListener, GameL
 	}
 
     private void loadBackground() {
-		backgroundImage = UploadRes.GetSpriteAtlas(UploadRes.MENU_BACKGROUND);
+		backgroundImage = UploadRes.GetSpriteAtlas(MENU_BACKGROUND);
 		menuWidth = (int) (Constants.UI.Game.G_WIDTH);
 		menuHeight = (int) (Constants.UI.Game.G_HEIGHT);
 	}
