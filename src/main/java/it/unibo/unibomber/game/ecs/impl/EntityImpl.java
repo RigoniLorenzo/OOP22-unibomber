@@ -19,7 +19,8 @@ public class EntityImpl implements Entity{
     private Pair<Float,Float> position;
     private float speed = 1;
 
-    public EntityImpl(final Pair<Float,Float> position, final Type type) {
+    public EntityImpl(final Game game,final Pair<Float,Float> position, final Type type) {
+        this.Game=game;
         this.position = position;
         this.type = type;
     }
@@ -58,7 +59,8 @@ public class EntityImpl implements Entity{
     }
 
     @Override
-    public Entity addComponent(Component component) {
+    public Entity addComponent(AbstractComponent component) {
+        component.setEntity(this);
         this.components.add(component);
         return this;
     }

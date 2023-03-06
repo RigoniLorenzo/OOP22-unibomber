@@ -19,7 +19,7 @@ public class Constants {
 		
 		}
 		public static class GameLoop {	
-			public final static int FPS_SET = 60;
+			public final static int FPS_SET = 120;
 		}
 	}
 

@@ -3,6 +3,7 @@ package it.unibo.unibomber.game.ecs.api;
 import java.util.Optional;
 import java.util.Set;
 
+import it.unibo.unibomber.game.ecs.impl.AbstractComponent;
 import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.utilities.Pair;
 
@@ -39,7 +40,7 @@ public interface Entity {
      * @param component the component to be added
      * @return the entity with the component added
      */
-    Entity addComponent(Component component);
+    Entity addComponent(AbstractComponent component);
 
     /**
      * @return the type of the entity
