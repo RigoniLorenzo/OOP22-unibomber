@@ -18,6 +18,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import it.unibo.unibomber.game.controller.api.GameLoop;
+import it.unibo.unibomber.game.ecs.api.Component;
+import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.ecs.api.PowerUpType;
 import it.unibo.unibomber.game.ecs.api.Type;
 import it.unibo.unibomber.game.ecs.impl.MovementComponent;
@@ -43,7 +45,7 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 	private List<String> map = new ArrayList<String>();
     public Play(WorldImpl world) {
 		super(world);
-		game = new GameImpl();
+		game = new GameImpl(world);
 		initClasses();
 		loadBackground();
 		loadAnimations();
@@ -54,9 +56,9 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 
 	private void initClasses() {
 		//add Bomberman Entity
-		game.addEntity(new EntityFactoryImpl().makePlayable(new Pair<Float,Float>(0f, 0f)));
-		//game.addEntity(new EntityFactoryImpl().makeIndestructibleWall(new Pair<Float,Float>(10f, 10f)));
-		game.addEntity(new EntityFactoryImpl().makePowerUp(new Pair<Float,Float>(5f, 5f), PowerUpType.FIREUP));
+		
+		game.addEntity(new EntityFactoryImpl(game).makePlayable(new Pair<Float,Float>(0f, 0f)));
+		//game.addEntity(new EntityFactoryImpl(game).makeIndestructibleWall(new Pair<Float,Float>(10f, 10f)));
         key_queue = new LinkedList<>();
 		power_up = UploadRes.GetSpriteAtlas(UploadRes.FIRE_UP);
 	}
@@ -100,15 +102,20 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 		arena_background = UploadRes.GetSpriteAtlas(UploadRes.ARENA_1);
 		arenaWidth = (int) (Constants.UI.Game.G_WIDTH);
 		arenaHeight = (int) (Constants.UI.Game.G_HEIGHT);
+		arenaHeight = (int) (Constants.UI.Game.G_HEIGHT);
 	}
 
 	@Override
 	public void update() {
-		updateAnimationFrame();
-        if(!key_queue.isEmpty()){
-            System.out.print(key_queue.getFirst());
-			key_queue.clear();
+		var size=game.getEntities().size();
+		for(int i = 0; i<size;i++){
+			for(Component c : game.getEntities().get(i).getComponents()){
+				c.update();
+			}
 		}
+		updateAnimationFrame();
+			key_queue.clear();
+		
 	}
 	
 	private void updateAnimationFrame() {
@@ -122,46 +129,42 @@ public class Play extends StateImpl implements KeyListener,GameLoop{
 	}
 	@Override
     public void draw(Graphics g) {
-		g.drawImage(arena_background, 0, 0, arenaWidth, arenaHeight, null);
-		g.drawImage(power_up, 0, 0, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), null);
+	
 
-		for (int index = 0; index < 9; index++) {
-			List<String> singleLine = Arrays.asList(map.get(index).split(" "));
-			for (int j = 0; j < singleLine.size(); j++) {
-				switch(Integer.parseInt(singleLine.get(j))){
-					case 0:
-						g.drawImage(animations[playerAction][animationIndex], 50,50, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE + Constants.UI.Game.TILES_DEFAULT), null);
-					break;
-					case 6:
-						g.drawImage(indestructible_wall, (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*j, (int)((Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE)*index-10), (int)(16 * Constants.UI.Game.SCALE), (int)(16 * Constants.UI.Game.SCALE+8), null);
-					break;
-				}
-			}
+		g.drawImage(arena_background, 0, 0, arenaWidth, arenaHeight, null);
+		g.drawImage(power_up,
+		 0,
+		  0,
+		   (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE),
+		    (int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), 
+		    null);
+
+		    for(int i = 0; i<game.getEntities().size();i++){
+		
+			g.drawImage(UploadRes.GetSpriteAtlas(UploadRes.SHADOW),
+			Math.round(game.getEntities().get(i).getPosition().getX()* Constants.UI.Game.TILES_DEFAULT),
+			Math.round(game.getEntities().get(i).getPosition().getY()* Constants.UI.Game.TILES_DEFAULT),
+			(int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), 
+			(int)(Constants.UI.Game.TILES_DEFAULT * Constants.UI.Game.SCALE), 
+			null);
 		}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-        key_queue.add(e.getKeyCode());
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                break;
-            case KeyEvent.VK_A:
-                break;
-            case KeyEvent.VK_S:
-                break;
-            case KeyEvent.VK_D:
-                break;
-            case KeyEvent.VK_SPACE:
-                break;
-        }
+		
 	}
 
     @Override
-    public void keyTyped(KeyEvent arg0) {
+    public void keyTyped(KeyEvent arg0) {     
+	   key_queue.add(arg0.getKeyCode());
+
+    }
+    public Deque<Integer> getKeys(){
+	return key_queue;
     }
 }

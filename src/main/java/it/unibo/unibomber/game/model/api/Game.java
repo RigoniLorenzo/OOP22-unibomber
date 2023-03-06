@@ -1,6 +1,8 @@
 package it.unibo.unibomber.game.model.api;
 
 import java.util.List;
+
+import it.unibo.unibomber.game.controller.api.World;
 import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.utilities.Pair;
 
@@ -52,4 +54,16 @@ public interface Game {
      * @return the Field construct relative to the current game
      */
     Field getGameField();
+
+    
+    /**
+     * @return if key is contaned into Map
+     */
+    List<Integer> getKeysPressedQueue();
+
+    
+    /**
+     * @return if key is contaned into Map
+     */
+    World getWorld();
 }

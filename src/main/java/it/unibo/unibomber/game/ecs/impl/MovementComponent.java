@@ -18,8 +18,8 @@ public class MovementComponent extends AbstractComponent {
     @Override
     public void update() {
         this.getEntity().addPosition(moveBy);
-        handleDirection();
-        checkCollisions();
+        //handleDirection();
+        //checkCollisions();
         moveBy= new Pair<Float,Float>(0f, 0f);
     }
 

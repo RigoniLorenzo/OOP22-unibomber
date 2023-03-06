@@ -16,7 +16,7 @@ public class WorldImpl implements World,Runnable, GameLoop{
 
     public WorldImpl(){
 		initClasses();
-        unibomberPanel = new WorldPanel(this);
+       	unibomberPanel = new WorldPanel(this);
 		new WorldWindow(unibomberPanel);
 		unibomberPanel.requestFocus();
 		startGameLoop();

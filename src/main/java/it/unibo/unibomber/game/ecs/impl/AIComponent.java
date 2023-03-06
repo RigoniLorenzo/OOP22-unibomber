@@ -2,7 +2,7 @@ package it.unibo.unibomber.game.ecs.impl;
 
 import it.unibo.unibomber.game.ecs.api.Component;
 
-public class AIComponent implements Component {
+public class AIComponent extends AbstractComponent {
 
      @Override
      public void update() {

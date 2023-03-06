@@ -1,5 +1,7 @@
 package it.unibo.unibomber.game.model.impl;
 
+import it.unibo.unibomber.game.controller.api.World;
+import it.unibo.unibomber.game.controller.impl.WorldImpl;
 import it.unibo.unibomber.game.model.api.Game;
 import it.unibo.unibomber.game.model.api.GameFactory;
 
@@ -7,7 +9,7 @@ public class GameFactoryImpl implements GameFactory {
 
     @Override
     public Game makeOnePlayerGame() {
-        Game game = new GameImpl();
+        Game game = new GameImpl(new WorldImpl());
         return game;
     }
 

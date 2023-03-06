@@ -3,6 +3,7 @@ package it.unibo.unibomber.game.model.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unibo.unibomber.game.controller.api.World;
 import it.unibo.unibomber.game.ecs.api.Entity;
 import it.unibo.unibomber.game.model.api.Field;
 import it.unibo.unibomber.game.model.api.Game;
@@ -13,10 +14,14 @@ public class GameImpl implements Game {
     private List<Entity> entities = new ArrayList<>();
     private List<Integer> keysPressedQueue = new ArrayList<>();  
     private Field gameField = new FieldImpl(this);
-    private final EntityFactoryImpl entityFactory=new EntityFactoryImpl();
+    private final EntityFactoryImpl entityFactory=new EntityFactoryImpl(this);
     private int columns;
     private int rows;
+    private World world;
 
+    public GameImpl(World world){
+        this.world=world;
+    }
     @Override
     public List<Entity> getEntities() {
         return this.entities;
@@ -44,7 +49,7 @@ public class GameImpl implements Game {
 
     @Override
     public void clearKeysPressed() {
-        keysPressedQueue.clear();
+        //keysPressedQueue.clear();
     }  
 
     @Override
@@ -63,4 +68,13 @@ public class GameImpl implements Game {
     }
     
     
+    @Override
+    public List<Integer> getKeysPressedQueue() {
+        return keysPressedQueue;
+    }
+
+    @Override
+    public World getWorld() {
+return this.world   ;
+ }
 }
